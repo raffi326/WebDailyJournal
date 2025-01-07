@@ -52,7 +52,7 @@ include "koneksi.php";
     <section id="hero" class="text-center p-5 bg-primary-subtle text-sm-start">
       <div class="container">
         <div class="d-sm-flex flex-sm-row-reverse align-items-center">
-          <img src="pemandangan.jpg" class="img-fluid" width="300">
+          <img src="https://i.pinimg.com/550x/d5/b7/33/d5b733b0f95f8b44609b49f788e50316.jpg" class="img-fluid" width="300">
           <div>
             <h1 class="fw-bold display-4">Create memories, Save memories, Everyday</h1>
             <h4 class="lead display-6">Mencatat semua kegiatan sehari-hari yang ada tanpa terkecuali</h4>
@@ -100,41 +100,52 @@ include "koneksi.php";
 </section>
 <!-- article end -->
 
-    <!-- gallery begin -->
-    <section id="gallery" class="text-center p-5 bg-primary-subtle">
-      <div class="container">
-        <h1 class="fw-bold display-4 pb-3">Gallery</h1>
-        <div id="carouselExample" class="carousel slide">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="p1.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="p3.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="p4.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="p5.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="https://p4.wallpaperbetter.com/wallpaper/44/475/694/airplane-flight-sunset-wallpaper-preview.jpg" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- gallery end -->
+  <!-- gallery begin -->
+  <section id="gallery" class="text-center p-4 bg-secondary-subtle">
+    <div class="container">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <?php
+                $sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+                $hasil = $conn->query($sql);
+                $counter = 0;
 
+                // Generate indicators dynamically
+                while ($row = $hasil->fetch_assoc()) {
+                    echo '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="' . $counter . '" class="' . ($counter === 0 ? 'active' : '') . '" aria-current="true" aria-label="Slide ' . ($counter + 1) . '"></button>';
+                    $counter++;
+                }
+
+                // Reset pointer for re-looping
+                $hasil->data_seek(0);
+                ?>
+            </div>
+            <div class="carousel-inner">
+                <?php
+                $counter = 0;
+
+                // Generate slides dynamically
+                while ($row = $hasil->fetch_assoc()) {
+                    echo '<div class="carousel-item ' . ($counter === 0 ? 'active' : '') . '">';
+                    echo '<img src="img/' . $row["gambar"] . '" class="d-block w-100" alt="Slide ' . ($counter + 1) . '">';
+                    echo '</div>';
+                    $counter++;
+                }
+                ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+    <!-- gallery end -->
   <!-- Schedule begin -->
   <section id="Schedule" class="text-center p-5">
     <div class="container">
@@ -160,7 +171,7 @@ include "koneksi.php";
             </div>
           </div>
         </div>
-
+  
         <!-- Tuesday -->
         <div class="col">
           <div class="card h-100">
@@ -185,7 +196,7 @@ include "koneksi.php";
             </div>
           </div>
         </div>
-
+  
         <!-- Wednesday -->
         <div class="col">
           <div class="card h-100">
@@ -202,7 +213,7 @@ include "koneksi.php";
             </div>
           </div>
         </div>
-
+  
         <!-- Thursday -->
         <div class="col">
           <div class="card h-100">
@@ -227,7 +238,7 @@ include "koneksi.php";
             </div>
           </div>
         </div>
-
+  
         <!-- Friday -->
         <div class="col">
           <div class="card h-100">
@@ -244,7 +255,7 @@ include "koneksi.php";
             </div>
           </div>
         </div>
-
+  
         <!-- Saturday -->
         <div class="col">
           <div class="card h-100">
@@ -271,8 +282,8 @@ include "koneksi.php";
       <div class="d-sm-flex flex-sm-row align-items-center justify-content-center">
         <img src="https://akcdn.detik.net.id/community/media/visual/2020/03/05/3fee3fcd-9117-4d3f-bce0-c297aa3039c4.jpeg?q=90&w=480" class="rounded-circle" alt="Cinque Terre" width="300">
         <div>
-          <p>A11.2023.15333</p>
-          <h3 class="fw-bold display">Abidah Syujana Putra</h3>
+          <p>A11.2023.15326</p>
+          <h3 class="fw-bold display">Ahmad Raffi Muzacky</h3>
           <p class="lead display">Program Studi Teknik Informatika</p>
           <p class="fw-bold display "><a href="https://dinus.ac.id/" class="text-dark">Universitas Dian Nuswantoro</a></p>
         </div>
@@ -283,11 +294,11 @@ include "koneksi.php";
     <!-- footer begin -->
     <footer class="text-center p-5">
       <div>
-        <a href="https://www.instagram.com/abid.syujana_?igsh=cjczaGlsMWJndXFt"> <i class="bi bi-instagram h2 p-2 text-dark"></i></a>
+        <a href="https://www.instagram.com/raffimuzacky"> <i class="bi bi-instagram h2 p-2 text-dark"></i></a>
         <a href="#reff"> <i class="bi bi-twitter h2 p-2 text-dark"></i></a>
         <a href="https://wa.me/qr/RE4XHLOIWX4NF1"> <i class="bi bi-whatsapp h2 p-2 text-dark"></i></a>
       </div>
-      <div>Abidah Syujana Putra &copy; 2024</div>
+      <div>Ahahmad Raffi Muzacky &copy; 2024</div>
     </footer>
     <!-- footer end -->
 
