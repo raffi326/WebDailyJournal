@@ -280,7 +280,7 @@ include "koneksi.php";
   <section id="A2bout me" class="text-center p-5 bg-primary-subtle text-sm-start">
     <div class="container">
       <div class="d-sm-flex flex-sm-row align-items-center justify-content-center">
-        <img src="https://akcdn.detik.net.id/community/media/visual/2020/03/05/3fee3fcd-9117-4d3f-bce0-c297aa3039c4.jpeg?q=90&w=480" class="rounded-circle" alt="Cinque Terre" width="300">
+        <img src="https://assets.jalantikus.com/assets/cache/0/0/userfiles/2020/10/05/foto-profil-d2983.jpg" class="rounded-circle" alt="Cinque Terre" width="300">
         <div>
           <p>A11.2023.15326</p>
           <h3 class="fw-bold display">Ahmad Raffi Muzacky</h3>
